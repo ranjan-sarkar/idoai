@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <?php header('Access-Control-Allow-Origin: *'); ?>
-    <!-- <title>Center of Excellence in AI Paper Reading Sessions</title> -->
-    <!-- <title>Paper Analysis and Discussion in AI at the Department of Artificial Intelligence</title> -->
-    <title>IdoAI &bull; IIT Kharagpur</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CORS header equivalent via meta tag (though server-side is preferred) -->
+    <title>IdoAI @IIT Kharagpur</title>
     <style>
         @font-face {
             font-family: 'Open Sans';
@@ -14,225 +16,94 @@
     </style>
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
-    $( function() {
-        $("#accordion").accordion({
-        collapsible: true
-        });
-    } );
-    </script>
 </head>
 
 <body>
     <div id="container">
-        <!-- <div id="nav-bar"></div> -->
-        <div id="bold-text">
-            <img id="iitlogo" src="iitlogo.png" alt="IIT Logo">
+        <!-- Skip to main content -->
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+
+        <div id="site-header">
+            <img id="iitlogo" src="iitlogo.png" alt="IIT Kharagpur Logo">
             <h1>IdoAI</h1><br>
-            <!-- <div id="iitlogo"></div> -->
             <h2>Inter-disciplinary Opportunities with AI</h2>
-            <!-- <h2>Department of Artificial Intelligence</h2>
-            <h2>Indian Institute of Technology Kharagpur</h2> -->
         </div>
+
         <div id="sub-container">
-            <p>
-                <h3 style="margin-bottom: 5px">Coming Up</h3>
-                <h4 style="margin-left:2px">Click on each topic to read the abstract</h4>
-            </p>
-            <table id="table-upcoming" cellspacing="20px">
-                <tr id="header">
-                    <th>Date</th>
-                    <th>Presenter</th>
-                    <!-- <th>Topic</th> -->
-                    <th style="text-align: center">Topic</th>
-                </tr>
-                <tr class="spacer" style="height:10px;"></tr>
-                <tr class="accordion">
-                    <td>25-09-2024</td>
-                    <td>Aman Kumar Singh</td>
-                    <td>Human activity imitation by a robotic manipulator in the ROS environment by using YOLO and DBSCAN</td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> Modern automation increasingly relies on robots capable of precise and flexible manipulation in unknown environments. This work presents a collaborative pick-and-place system using the Mycobot 280 Jetson manipulator integrated with ROS MoveIt, designed for complex object handling using vision.<br><br>
-                            The system utilizes ROS MoveIt for motion planning, collision avoidance, and kinematics computation to control the manipulator. Stereo vision with dual RGB cameras generates point clouds, enabling YOLOv8 to perform real-time object detection. DBSCAN clustering localizes objects in 3D space, providing coordinates for manipulation.<br><br>
-                            The manipulator operates through ROS scripts to execute pick-and-place tasks, with real-time tracking feedback allowing adjustments during operation. The system includes human activity imitation by analyzing video input to replicate human-object interactions, such as placing objects into bins or handing them to users. This approach demonstrates the integration of motion planning, vision-based perception, and control using ROS MoveIt for robotic systems.
-                        </p>
-                    </td>
-                </tr>
-            </table>
+            <main id="main-content">
+                <!-- Coming Up Section -->
+                <section class="events-section">
+                    <h3>Coming Up</h3>
+                    <p><h4>Click on each topic to read the abstract</h4></p>
 
-            <p style="margin-top:60px">
-                <h3 style="margin-bottom: 20px">About Us</h3>
-                <h4 style="color:white">Welcome to the <strong>IdoAI Talk Series</strong>, a weekly departmental seminar series at the <strong>Department of Artificial Intelligence Seminar Room, CRR Building, IIT Kharagpur</strong>. Our objective is straightforward: every <strong>Tuesday 05:00 PM - 06:00 PM IST</strong>, we delve into a new paper presented by a knowledgeable speaker (including their own work), generously dedicating an hour to share insights and discoveries with our members. </h4>
-            </p>
+                    <!-- Upcoming Events Container -->
+                    <div class="events-container">
+                        <!-- Event Item -->
+                        <div class="event-item">
+                            <div class="event-header">
+                                <div class="event-date">25-09-2024</div>
+                                <div class="event-info">
+                                    <h3>Aman Kumar Singh</h3>
+                                    <h4 class="event-topic">Human activity imitation by a robotic manipulator in the ROS environment by using YOLO and DBSCAN</h4>
+                                </div>
+                            </div>
+                            <div class="event-content">
+                                <p>
+                                    <strong>Abstract:</strong> Modern automation increasingly relies on robots capable of precise and flexible manipulation in unknown environments. This work presents a collaborative pick-and-place system using the Mycobot 280 Jetson manipulator integrated with ROS MoveIt, designed for complex object handling using vision.<br><br>
+                                    The system utilizes ROS MoveIt for motion planning, collision avoidance, and kinematics computation to control the manipulator. Stereo vision with dual RGB cameras generates point clouds, enabling YOLOv8 to perform real-time object detection. DBSCAN clustering localizes objects in 3D space, providing coordinates for manipulation.<br><br>
+                                    The manipulator operates through ROS scripts to execute pick-and-place tasks, with real-time tracking feedback allowing adjustments during operation. The system includes human activity imitation by analyzing video input to replicate human-object interactions, such as placing objects into bins or handing them to users. This approach demonstrates the integration of motion planning, vision-based perception, and control using ROS MoveIt for robotic systems.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-            <p>
-                <h3 style="margin-bottom: 5px;margin-top: 90px">Past Events</h3>
-                <h4 style="margin-left:2px">Click on each topic to read the abstract</h4>
-            </p>
-            <table id="table-upcoming" cellspacing="20px">
-                <tr id="header">
-                    <th>Data</th>
-                    <th>Presenter</th>
-                    <!-- <th>Topic</th> -->
-                    <th style="text-align: center">Topic</th>
-                </tr>
-                <tr class="spacer" style="height:10px;"></tr>
+                    <!-- Link to full events page -->
+                    <div class="events-link">
+                        <a href="events.html" class="btn-primary">View All Events &amp; Past Talks</a>
+                    </div>
+                </section>
 
-                <tr class="accordion">
-                    <td>06-06-2024</td>
-                    <td>Atif Hassan</td>
-                    <td>Spend less time tuning and more time chilling: Some tips and tricks to achieve good performance on any Deep Learning Task<br> &nbsp;<a href="Spend less time TUNING.pptx" download>(Download ppt)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> In this talk, we'll be discussing about practical training methods that can help you achieve improved performance in no time.
-                        </p>
-                    </td>
-                </tr>
-
-                <tr class="accordion">
-                    <td>21-03-2024</td>
-                    <td>Siddharth Jaiswal</td>
-                    <td>Fairness, Biasness and Everything in Between&nbsp;<a href="https://dl.acm.org/doi/pdf/10.1145/3457607" download>(Source Material)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> The talk was on Biasness and its different forms that plague the current world.
-                        </p>
-                    </td>
-                </tr>
-
-                <tr class="accordion">
-                    <td>08-03-2024</td>
-                    <td>Animesh Sachan</td>
-                    <td>An Introduction to Graph Machine Learning - I &nbsp;<a href="content/Intro to GML Part 1.pptx" download>(Download ppt)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> Deep learning has revolutionized many machine learning tasks in recent years. Traditional machine learning models predominantly handle data in Euclidean spaces, but the surge in complex, interconnected data types necessitates a paradigm shift towards non-Euclidean domains. This is where graph machine learning emerges as a pivotal innovation, providing robust frameworks for analyzing and interpreting data that inherently exists in the form of graphs or networks. Graph learning proves effective for many tasks, such as classification, link prediction, and matching. Generally, graph learning methods extract relevant features of graphs by taking advantage of machine learning algorithms. This talk aims to demystify the prominent architectures within graph machine learning, its wide-ranging applications, and the methodologies for employing Graph Neural Networks (GNNs) to address specific problems.
-                        </p>
-                    </td>
-                </tr>
-
-                <tr class="accordion">
-                    <td>29-02-2024</td>
-                    <td>Ashraf Haroon Rashid</td>
-                    <td>SSEnse: Stochastic Method For Discovering Sparse Ensembles of Machine Learning Models&nbsp;<a href="content/Ensembles_references.pdf" download>(Download References)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> Ensemble learning has proven to be highly efficient in producing robust learners. Modern ensemble learning methods can be computationally cumbersome during training and inference due to the presence of large number of individual machine learning (ML) or deep learning (DL) models. To this end, many different techniques have been proposed to reduce computational overhead during the practical implementation of such large ensemble models. These techniques belong to the broad domain of Static Ensemble Selection (SES) or Ensemble Pruning in which a sparser subset of models is chosen as a
-                            representative ensemble. The SES techniques produce a sparse ensemble by using specially designed algorithms and objective functions for a specific metric like classification accuracy or prediction diversity.
-                            These techniques sometimes also make specific hard assumptions on other properties of the objectives
-                            like smoothness and convexity. However, with the advent of modern AI into myriad domains, numerous
-                            other metrics like Fairness, Precision, Confidence, Trustworthiness etc. continue to emerge. As a result,
-                            there is a need for these metrics to be taken into consideration while selecting a subset of models from
-                            the ensemble. The existing SES techniques also ignore several aspects that may be important to the
-                            user while selecting a subset like the computational budget, the tolerance for performance degradation
-                            and the amount of required sparsity. In this work, we propose Sparse Stochastic Ensembles (SSEnse),
-                            a framework that obtains a sparser ensemble while being sensitive to the aforementioned user settings.
-                            SSEnse is a generic framework that uses a novel Stochastic Process (SP) to select a sparser subset while
-                            optimizing any metric of choice given by the user, as long as the metric lies in the interval [0, 1], without
-                            any restrictions on designing special objective function or hard assumptions on smoothness, convexity
-                            or other such properties of the given metric.
-                        </p>
-                    </td>
-                </tr>
-
-                <tr class="accordion">
-                    <td>15-02-2024</td>
-                    <td>Ashraf Haroon Rashid</td>
-                    <td>Ensemble Learning: The Dark Horse of Modern Machine Learning Landscape&nbsp;<a href="content/Ensembles_references.pdf" download>(Download References)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p style="font-size:18px;">
-                            <strong>Background:</strong>
-                                Ensemble learning&#39;s history traces back to the late 20th century, with the early 1990s
-                                marking its inception. The term &quot;ensemble learning&quot; gained prominence in the mid-1990s,
-                                with researchers exploring methods to combine diverse models for better generalization.
-                                The pioneering work of Leo Breiman in 1996 on bagging (bootstrap aggregating)
-                                introduced the idea of training multiple models on bootstrapped subsets of the data,
-                                reducing overfitting and improving stability. On the other hand AdaBoost, introduced in
-                                1995, became a landmark algorithm, showcasing the power of boosting in enhancing weak
-                                learners. Shortly after, boosting algorithms, proposed by Robert Schapire and Yoram
-                                Singer, emerged to sequentially train models for correct classification of previously
-                                misclassified instances. In the early 2000s, Random Forests, introduced by Leo Breiman,
-                                gained prominence as an ensemble technique using decision trees and decorrelating them
-                                for improved performance. As machine learning advanced, ensemble methods found
-                                applications in diverse fields, showcasing their robustness and adaptability. Ensemble
-                                learning continued to evolve, adapting to the rise of deep learning.</br></br>
-                                <strong>Details of the talk:</strong>
-                                This research talk delves into the rich history of ensemble learning, tracing its evolution as
-                                a pivotal concept shaping the landscape of modern machine learning. Beginning with its
-                                roots, we explore the foundations laid by early pioneers and unravel the journey of
-                                ensemble learning&#39;s integration into the domain of machine learning methodologies. A
-                                particular focus is placed on the transformative influence of ensemble learning through
-                                bootstrapping and boosting techniques, elucidating their role in enhancing model
-                                robustness and performance. These techniques not only contribute to the diversity within
-                                ensembles but have played a crucial role in the development of powerful algorithms.
-                                Furthermore, the talk investigates how ensemble learning serves as a fundamental
-                                building block for contemporary deep neural networks, such as residual networks
-                                (ResNets) and dense neural networks (DenseNets). Another intriguing aspect explored is
-                                the pervasive presence of ensemble learning in various adnaced facets of deep learning
-                                like distributed learning, and federated learning. Through this exploration, the talk aims to
-                                unveil the hidden influence of ensemble learning, providing a comprehensive
-                                understanding of its historical significance and its integral role in molding the landscape of
-                                modern machine learning.
-                        </p>
-                    </td>
-                </tr>
-
-                <tr class="accordion">
-                    <td>08-02-2024</td>
-                    <td>Tejas Pote</td>
-                    <td>Sparsity in Deep Neural Networks and the Lottery Ticket Hypothesis (<a href="https://arxiv.org/abs/1803.03635" target=”_blank”>paper</a>,&nbsp;<a href="https://arxiv.org/abs/1903.01611v1" target=”_blank”>paper</a>,&nbsp;<a href="https://arxiv.org/abs/2010.03533" target=”_blank”>paper</a>)&nbsp;<a href="content/Sparsity in Deep Neural Networks and The Lottery.pptx" download>(Download ppt)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> Deep Neural Networks deliver the promise of overwhelming generalization performance over a wide variety of tasks like image classification, language modeling, etc. However, the growing size of the networks poses concerns of increasing computational and storage overheads. Besides, parameter redundancy in modern deep networks is well established given  their overparameterized nature. To this end, a number of pruning techniques are widely employed for training neural networks which drop redundant model parameters based on various criteria and deliver comparable model performance. In this talk, we discuss the Lottery Ticket Hypothesis, which empirically proves the existence of subnetworks (winning tickets) within dense, randomly-initialized, feed-forward networks and outlines a training procedure to arrive at the winning solution by training from scratch. The method is successful in reducing parameter counts by over 90% and as well converging faster than the dense network. The talk shall revolve around an overview of the method along with the experimental details. We also plan to discuss the theoretical aspects of the technique and develop deeper insights on 'what makes the lottery tickets win'.
-                        </p>
-                    </td>
-                </tr>
-            </table>
+                <!-- About Us Section -->
+                <section class="about-section">
+                    <p style="margin-top:60px">
+                        <h3 style="margin-bottom: 20px">About Us</h3>
+                        <h4 style="color:white">Welcome to the <strong>IdoAI Talk Series</strong>, a weekly departmental seminar series at the <strong>Department of Artificial Intelligence Seminar Room, CRR Building, IIT Kharagpur</strong>. Our objective is straightforward: every <strong>Tuesday 05:00 PM - 06:00 PM IST</strong>, we delve into a new paper presented by a knowledgeable speaker (including their own work), generously dedicating an hour to share insights and discoveries with our members. </h4>
+                    </p>
+                </section>
+            </main>
         </div>
     </div>
 
-
     <script>
-        var acc = document.getElementsByClassName("accordion");
-        var panels = document.getElementsByClassName("panel");
-        var i;
+        // Accessible accordion implementation
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.event-header');
 
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                /* Toggle between adding and removing the "active" class,
-                to highlight the button that controls the panel */
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const eventItem = this.parentElement;
+                    const isOpen = eventItem.classList.contains('open');
 
-                /* Toggle between hiding and showing the active panel */
-                var panel = panels[[].indexOf.call(acc, this)];
-                console.log(panel.getElementsByTagName("td")[0].style.height);
-                if (!panel.getElementsByTagName("td")[0].style.height || panel.getElementsByTagName("td")[0].style.height.localeCompare("0px")==0) {
-                    panel.getElementsByTagName("td")[0].style.height = "auto";
-                    panel.getElementsByTagName("td")[0].getElementsByTagName("p")[0].style.height = "auto";
-                }
-                else {
-                    panel.getElementsByTagName("td")[0].style.height = "0px";
-                    panel.getElementsByTagName("td")[0].getElementsByTagName("p")[0].style.height = "0px";
-                }
+                    // Close all event items
+                    document.querySelectorAll('.event-item').forEach(item => {
+                        item.classList.remove('open');
+                    });
+
+                    // Toggle current item if it wasn't open
+                    if (!isOpen) {
+                        eventItem.classList.add('open');
+                    }
+                });
+
+                // Keyboard accessibility
+                header.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
             });
-        }
+        });
     </script>
 </body>
 </html>
