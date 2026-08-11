@@ -4,7 +4,7 @@
 
 ---
 
-## 📅 Schedule & Venue
+## 📅 Schedule
 
 - **When:** Every **Tuesday | 05:00 PM – 06:00 PM IST**
 - **Venue:** Classroom (4th Floor), Department of AI (CRR Building), IIT Kharagpur
