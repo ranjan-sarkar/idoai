@@ -1,238 +1,371 @@
 <!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
 <head>
-    <?php header('Access-Control-Allow-Origin: *'); ?>
-    <!-- <title>Center of Excellence in AI Paper Reading Sessions</title> -->
-    <!-- <title>Paper Analysis and Discussion in AI at the Department of Artificial Intelligence</title> -->
-    <title>IdoAI &bull; IIT Kharagpur</title>
-    <style>
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 100;
-            src: local('Open Sans'), local('OpenSans'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
-        }
-    </style>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <meta charset="UTF-8">
     <script>
-    $( function() {
-        $("#accordion").accordion({
-        collapsible: true
-        });
-    } );
+        (function () {
+            const savedTheme = localStorage.getItem('idoai-theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
     </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdoAI &bull; Dept. of AI, IIT Kharagpur</title>
+    <meta name="description"
+        content="IdoAI - Interdisciplinary Opportunities with AI. Departmental talk series at Department of AI, IIT Kharagpur.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="container">
-        <!-- <div id="nav-bar"></div> -->
-        <div id="bold-text">
-            <img id="iitlogo" src="iitlogo.png" alt="IIT Logo">
-            <h1>IdoAI</h1><br>
-            <!-- <div id="iitlogo"></div> -->
-            <h2>Inter-disciplinary Opportunities with AI</h2>
-            <!-- <h2>Department of Artificial Intelligence</h2>
-            <h2>Indian Institute of Technology Kharagpur</h2> -->
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <img src="iitlogo.png" alt="IIT Kharagpur Logo" class="logo-dark">
+                <img src="IITKgp_logo.svg" alt="IIT Kharagpur Logo" class="logo-light">
+                <div>
+                    <span class="brand-title text-gradient">IdoAI</span>
+                    <span class="brand-subtitle">Dept. of Artificial Intelligence &bull; IIT Kharagpur</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <!-- <li><a href="gallery.html" class="nav-link">Gallery</a></li> -->
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
-        <div id="sub-container">
-            <p>
-                <h3 style="margin-bottom: 5px">Coming Up</h3>
-                <h4 style="margin-left:2px">Click on each topic to read the abstract</h4>
-            </p>
-            <table id="table-upcoming" cellspacing="20px">
-                <tr id="header">
-                    <th>Date</th>
-                    <th>Presenter</th>
-                    <!-- <th>Topic</th> -->
-                    <th style="text-align: center">Topic</th>
-                </tr>
-                <tr class="spacer" style="height:10px;"></tr>
-                <tr class="accordion">
-                    <td>25-09-2024</td>
-                    <td>Aman Kumar Singh</td>
-                    <td>Human activity imitation by a robotic manipulator in the ROS environment by using YOLO and DBSCAN</td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> Modern automation increasingly relies on robots capable of precise and flexible manipulation in unknown environments. This work presents a collaborative pick-and-place system using the Mycobot 280 Jetson manipulator integrated with ROS MoveIt, designed for complex object handling using vision.<br><br>
-                            The system utilizes ROS MoveIt for motion planning, collision avoidance, and kinematics computation to control the manipulator. Stereo vision with dual RGB cameras generates point clouds, enabling YOLOv8 to perform real-time object detection. DBSCAN clustering localizes objects in 3D space, providing coordinates for manipulation.<br><br>
-                            The manipulator operates through ROS scripts to execute pick-and-place tasks, with real-time tracking feedback allowing adjustments during operation. The system includes human activity imitation by analyzing video input to replicate human-object interactions, such as placing objects into bins or handing them to users. This approach demonstrates the integration of motion planning, vision-based perception, and control using ROS MoveIt for robotic systems.
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-badge">
+                    <!-- <span class="pulse-dot"></span> -->
+                    Weekly Talk Series
+                </div>
+                <h1 class="hero-title">
+                    Interdisciplinary Opportunities with <span class="text-gradient">AI</span>
+                </h1>
+                <p class="hero-description">
+                    Join us every <strong>Tuesday from 5 PM to 6 PM IST</strong> at the Department of Artificial
+                    Intelligence (DoAI) Seminar Room, CRR Building, IIT Kharagpur for interactive research discussions,
+                    paper
+                    analysis, and breakthroughs.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="events.html" class="btn btn-primary">
+                        <i class="fa-solid fa-calendar-check"></i> View Current Talk & Events
+                    </a>
+                    <a href="https://forms.gle/89a4wQrrdy2YnLNX6" target="_blank" class="btn btn-secondary">
+                        <i class="fa-solid fa-paper-plane" style="color: var(--primary-light);"></i> Propose a Talk /
+                        Speaker Form
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current / Next Talk Spotlight -->
+        <section class="featured-section container">
+            <h2 class="section-title">Next Seminar Spotlight</h2>
+            <p class="section-subtitle">Upcoming departmental seminar session details</p>
+
+            <div class="featured-card">
+                <div class="featured-header">
+                    <span class="event-tag">Upcoming Session</span>
+                    <div class="event-date">
+                        <i class="fa-regular fa-calendar-check"></i> 18 Aug 2026 &bull; 05:00 PM - 06:00 PM IST
+                    </div>
+                </div>
+
+                <h3 class="featured-title">
+                    Learning the ESG Geometry with Domain-Aware Language Models
+                </h3>
+
+                <div class="presenter-info">
+                    <!-- <div class="presenter-avatar">MM</div> -->
+                    <div>
+                        <div class="presenter-name">Speaker: Dr. Mahesh Mohan M R</div>
+                        <!-- <div class="presenter-role">Department of Artificial Intelligence, IIT Kharagpur</div> -->
+                    </div>
+                </div>
+
+                <!-- Talk Poster Preview -->
+                <div class="talk-poster-container">
+                    <div class="talk-poster-preview" id="talk-poster-trigger"
+                        data-caption="Upcoming Seminar Poster &bull; Dr. Mahesh Mohan M R">
+                        <img src="contact_dp/talk_poster.png"
+                            alt="Upcoming Talk Poster - Learning the ESG Geometry with Domain-Aware Language Models"
+                            class="talk-poster-img">
+                        <div class="poster-overlay">
+                            <span><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge poster</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-footer">
+                    <div class="countdown-container">
+                        <span class="countdown-label"><i class="fa-solid fa-clock"></i> Next Talk In:</span>
+                        <div class="countdown-timer">
+                            <div class="timer-unit">
+                                <div class="timer-val" id="timer-days">00</div>
+                                <div class="timer-lbl">Days</div>
+                            </div>
+                            <span class="timer-sep">:</span>
+                            <div class="timer-unit">
+                                <div class="timer-val" id="timer-hours">00</div>
+                                <div class="timer-lbl">Hours</div>
+                            </div>
+                            <span class="timer-sep">:</span>
+                            <div class="timer-unit">
+                                <div class="timer-val" id="timer-mins">00</div>
+                                <div class="timer-lbl">Mins</div>
+                            </div>
+                            <span class="timer-sep">:</span>
+                            <div class="timer-unit">
+                                <div class="timer-val" id="timer-secs">00</div>
+                                <div class="timer-lbl">Secs</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="events.html" class="btn btn-primary btn-sm">
+                        Full Schedule & Talk Details<i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent 2026 & Past Highlights Section -->
+        <section class="highlights-section container" style="margin-bottom: 4rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+                <div>
+                    <h2 class="section-title">Recent Seminars</h2>
+                    <p class="section-subtitle">Explore slides, abstracts, and key takeaways from recent 2026 sessions
+                    </p>
+                </div>
+                <a href="events.html" class="btn btn-secondary btn-sm" style="margin-bottom: 2rem;">
+                    View All Events & Archive <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="events-grid">
+                <!-- 2026 Talk 1: Dr. Shreya Ghosh -->
+                <div class="event-card">
+                    <div class="event-summary">
+                        <div class="event-date-badge"><i class="fa-regular fa-calendar"></i> 28-07-2026</div>
+                        <div class="event-speaker">Dr. Shreya Ghosh</div>
+                        <div class="event-topic">Automatic Human Behaviour Understanding</div>
+                        <div class="expand-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="event-details-drawer">
+                        <div class="drawer-content">
+                            <div class="drawer-abstract">
+                                <p><strong>Abstract:</strong> Understanding human behaviour is essential for effective
+                                    communication and social interaction. Gestural cues such as eye gaze, facial
+                                    expressions, and body movements offer deep insights into complex mental and
+                                    emotional states. Accurately capturing and modelling these cues in unconstrained
+                                    environments remains a significant challenge due to data annotation complexity,
+                                    variability in human behaviour, and computational limitations. My research focuses
+                                    on developing robust computational models that can automatically learn and interpret
+                                    non-verbal gestural cues in naturalistic, real-world scenarios, with minimal
+                                    supervision. These models aim to bridge the gap between human cognitive
+                                    understanding and machine perception, making AI systems more socially aware and
+                                    context-sensitive.</p>
+                                <br>
+                                <p>My work has wide-ranging applications in real-world settings, including monitoring
+                                    student engagement in classrooms, assessing group cohesion in collaborative
+                                    environments, detecting emergent leaders, identifying dominant individuals in
+                                    discussions, and analysing crowd behaviour. By advancing automatic behaviour
+                                    understanding 'in-the-wild', my research contributes to building more adaptive and
+                                    human-centric AI systems capable of functioning effectively in everyday social
+                                    environments.</p>
+                            </div>
+                            <div class="resource-links">
+                                <span class="resource-btn"><i class="fa-solid fa-user-graduate"
+                                        style="color:var(--primary);"></i> Dept of AI,
+                                    IIT Kharagpur</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2026 Talk 2: Prof. Dipankar Maity -->
+                <div class="event-card">
+                    <div class="event-summary">
+                        <div class="event-date-badge"><i class="fa-regular fa-calendar"></i> 16-07-2026</div>
+                        <div class="event-speaker">Prof. Dipankar Maity</div>
+                        <div class="event-topic">System-Level Privacy Against Eavesdropping Adversaries</div>
+                        <div class="expand-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="event-details-drawer">
+                        <div class="drawer-content">
+                            <div class="drawer-abstract">
+                                <p><strong>Abstract:</strong> Obscuring sensitive data from adversarial eavesdropping in
+                                    distributed decision-making is a significant challenge across a range of
+                                    applications, including smart grids, autonomous vehicle coordination, and
+                                    multi-robot surveillance. Existing methods—such as encryption or differential
+                                    privacy—modify transmitted messages without considering the underlying dynamics of
+                                    the cyber-physical processes that generate the data, nor the capabilities of
+                                    potential adversaries. In our recent work, we demonstrate that every dynamical
+                                    system possesses an inherent system-level privacy that can be harnessed through the
+                                    design of intelligent inter-agent communication protocols.</p>
+                                <br>
+                                <p>In this talk, I will present our recent results on extracting system-level privacy in
+                                    the presence of eavesdropping adversaries. We derive analytical expressions that
+                                    quantify the level of protection as a function of both the adversary's capabilities
+                                    and the agent communication graph. Finally, I will show how these results can be
+                                    applied in the context of distributed optimization and federated learning.</p>
+                                <br>
+                                <p><em><strong>Speaker Bio:</strong> Dipankar Maity is an Assistant Professor in the
+                                        Department of Electrical and Computer Engineering at the University of North
+                                        Carolina at Charlotte. He earned his B.E. degree in Electronics and
+                                        Telecommunication Engineering from Jadavpur University, India, in 2013, and his
+                                        Ph.D. degree in Electrical Engineering from the University of Maryland at
+                                        College Park, in 2018. Following his doctoral studies, he was a Postdoctoral
+                                        Fellow at the Georgia Institute of Technology. He has been a visiting scholar at
+                                        the Technical University of Munich, Germany, and at the KTH Royal Institute of
+                                        Technology, Sweden. He is a member of the IEEE Control System Society Technical
+                                        Committee on Security and Privacy. He is an Associate Editor for the IEEE
+                                        Control Systems Letters journal.</em></p>
+                            </div>
+                            <div class="resource-links">
+                                <span class="resource-btn"><i class="fa-solid fa-university"
+                                        style="color:var(--primary);"></i> UNC
+                                    Charlotte</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="container" style="margin-bottom: 5rem;">
+            <div
+                style="background: var(--bg-surface); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 3rem; backdrop-filter: blur(12px);">
+                <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <h2 class="section-title">About IdoAI</h2>
+                        <p style="font-size: 1.05rem; line-height: 1.8; margin-top: 1rem; color: var(--text-muted);">
+                            Welcome to the <strong>IdoAI Talk Series</strong>, a weekly departmental seminar series
+                            hosted by the <strong>Department of Artificial Intelligence, IIT Kharagpur</strong>.
                         </p>
-                    </td>
-                </tr>
-            </table>
-
-            <p style="margin-top:60px">
-                <h3 style="margin-bottom: 20px">About Us</h3>
-                <h4 style="color:white">Welcome to the <strong>IdoAI Talk Series</strong>, a weekly departmental seminar series at the <strong>Department of Artificial Intelligence Seminar Room, CRR Building, IIT Kharagpur</strong>. Our objective is straightforward: every <strong>Tuesday 05:00 PM - 06:00 PM IST</strong>, we delve into a new paper presented by a knowledgeable speaker (including their own work), generously dedicating an hour to share insights and discoveries with our members. </h4>
-            </p>
-
-            <p>
-                <h3 style="margin-bottom: 5px;margin-top: 90px">Past Events</h3>
-                <h4 style="margin-left:2px">Click on each topic to read the abstract</h4>
-            </p>
-            <table id="table-upcoming" cellspacing="20px">
-                <tr id="header">
-                    <th>Data</th>
-                    <th>Presenter</th>
-                    <!-- <th>Topic</th> -->
-                    <th style="text-align: center">Topic</th>
-                </tr>
-                <tr class="spacer" style="height:10px;"></tr>
-
-                <tr class="accordion">
-                    <td>06-06-2024</td>
-                    <td>Atif Hassan</td>
-                    <td>Spend less time tuning and more time chilling: Some tips and tricks to achieve good performance on any Deep Learning Task<br> &nbsp;<a href="Spend less time TUNING.pptx" download>(Download ppt)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> In this talk, we'll be discussing about practical training methods that can help you achieve improved performance in no time.
+                        <p style="font-size: 1rem; line-height: 1.8; margin-top: 1rem; color: var(--text-muted);">
+                            Our objective is simple and impactful: every <strong>Tuesday from 05:00 PM - 06:00 PM
+                                IST</strong>, researchers, faculty, and students gather to dissect landmark AI papers or
+                            share their own original research findings. We dedicate an hour to interactive Q&A,
+                            fostering collaborative interdisciplinary ideas.
                         </p>
-                    </td>
-                </tr>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="https://forms.gle/89a4wQrrdy2YnLNX6" target="_blank" class="btn btn-primary">
+                                <i class="fa-solid fa-lightbulb"></i> Submit Speaker Proposal Form
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        style="flex: 0 0 280px; background: var(--bg-card); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--glass-border);">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--primary-light);">Venue Details
+                        </h4>
+                        <p style="font-size: 0.9rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-location-dot"
+                                style="color: var(--primary);"></i> Seminar Room, Dept. of AI</p>
+                        <p style="font-size: 0.9rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-building"
+                                style="color: var(--primary);"></i> CRR Building, IIT Kharagpur</p>
+                        <p style="font-size: 0.9rem;"><i class="fa-regular fa-clock" style="color: var(--primary);"></i>
+                            Tuesdays @ 05:00 PM IST</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-                <tr class="accordion">
-                    <td>21-03-2024</td>
-                    <td>Siddharth Jaiswal</td>
-                    <td>Fairness, Biasness and Everything in Between&nbsp;<a href="https://dl.acm.org/doi/pdf/10.1145/3457607" download>(Source Material)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> The talk was on Biasness and its different forms that plague the current world.
-                        </p>
-                    </td>
-                </tr>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <img src="iitlogo.png" alt="IIT Kharagpur Logo" class="logo-dark">
+                        <img src="IITKgp_logo.svg" alt="IIT Kharagpur Logo" class="logo-light">
+                        <span class="brand-title text-gradient">IdoAI</span>
+                    </a>
+                    <p>
+                        <b>Interdisciplinary Opportunities with AI</b> <br>
+                        Weekly Seminar & Paper Discussion Series at
+                        Department of Artificial Intelligence,
+                        Indian Institute of Technology Kharagpur.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Event Details</a></li>
+                        <!-- <li><a href="gallery.html">Photo Gallery</a></li> -->
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.linkedin.com/company/ai-iitkgp/" target="_blank"><i
+                                    class="fa-brands fa-linkedin" style="color:#0a66c2;"></i> LinkedIn Page</a></li>
+                        <li><a href="https://ai.iitkgp.ac.in" target="_blank"><i class="fa-solid fa-globe"></i>
+                                Department Webpage</a></li>
+                        <li><a href="https://maps.app.goo.gl/JtVYZDqB4DAPf4AH8" target="_blank"><i
+                                    class="fa-solid fa-location-dot"></i> CRR Building, IIT KGP</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 IdoAI - Department of Artificial Intelligence, IIT Kharagpur. All rights reserved.
+            </div>
+        </div>
+    </footer>
 
-                <tr class="accordion">
-                    <td>08-03-2024</td>
-                    <td>Animesh Sachan</td>
-                    <td>An Introduction to Graph Machine Learning - I &nbsp;<a href="content/Intro to GML Part 1.pptx" download>(Download ppt)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> Deep learning has revolutionized many machine learning tasks in recent years. Traditional machine learning models predominantly handle data in Euclidean spaces, but the surge in complex, interconnected data types necessitates a paradigm shift towards non-Euclidean domains. This is where graph machine learning emerges as a pivotal innovation, providing robust frameworks for analyzing and interpreting data that inherently exists in the form of graphs or networks. Graph learning proves effective for many tasks, such as classification, link prediction, and matching. Generally, graph learning methods extract relevant features of graphs by taking advantage of machine learning algorithms. This talk aims to demystify the prominent architectures within graph machine learning, its wide-ranging applications, and the methodologies for employing Graph Neural Networks (GNNs) to address specific problems.
-                        </p>
-                    </td>
-                </tr>
-
-                <tr class="accordion">
-                    <td>29-02-2024</td>
-                    <td>Ashraf Haroon Rashid</td>
-                    <td>SSEnse: Stochastic Method For Discovering Sparse Ensembles of Machine Learning Models&nbsp;<a href="content/Ensembles_references.pdf" download>(Download References)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> Ensemble learning has proven to be highly efficient in producing robust learners. Modern ensemble learning methods can be computationally cumbersome during training and inference due to the presence of large number of individual machine learning (ML) or deep learning (DL) models. To this end, many different techniques have been proposed to reduce computational overhead during the practical implementation of such large ensemble models. These techniques belong to the broad domain of Static Ensemble Selection (SES) or Ensemble Pruning in which a sparser subset of models is chosen as a
-                            representative ensemble. The SES techniques produce a sparse ensemble by using specially designed algorithms and objective functions for a specific metric like classification accuracy or prediction diversity.
-                            These techniques sometimes also make specific hard assumptions on other properties of the objectives
-                            like smoothness and convexity. However, with the advent of modern AI into myriad domains, numerous
-                            other metrics like Fairness, Precision, Confidence, Trustworthiness etc. continue to emerge. As a result,
-                            there is a need for these metrics to be taken into consideration while selecting a subset of models from
-                            the ensemble. The existing SES techniques also ignore several aspects that may be important to the
-                            user while selecting a subset like the computational budget, the tolerance for performance degradation
-                            and the amount of required sparsity. In this work, we propose Sparse Stochastic Ensembles (SSEnse),
-                            a framework that obtains a sparser ensemble while being sensitive to the aforementioned user settings.
-                            SSEnse is a generic framework that uses a novel Stochastic Process (SP) to select a sparser subset while
-                            optimizing any metric of choice given by the user, as long as the metric lies in the interval [0, 1], without
-                            any restrictions on designing special objective function or hard assumptions on smoothness, convexity
-                            or other such properties of the given metric.
-                        </p>
-                    </td>
-                </tr>
-
-                <tr class="accordion">
-                    <td>15-02-2024</td>
-                    <td>Ashraf Haroon Rashid</td>
-                    <td>Ensemble Learning: The Dark Horse of Modern Machine Learning Landscape&nbsp;<a href="content/Ensembles_references.pdf" download>(Download References)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p style="font-size:18px;">
-                            <strong>Background:</strong>
-                                Ensemble learning&#39;s history traces back to the late 20th century, with the early 1990s
-                                marking its inception. The term &quot;ensemble learning&quot; gained prominence in the mid-1990s,
-                                with researchers exploring methods to combine diverse models for better generalization.
-                                The pioneering work of Leo Breiman in 1996 on bagging (bootstrap aggregating)
-                                introduced the idea of training multiple models on bootstrapped subsets of the data,
-                                reducing overfitting and improving stability. On the other hand AdaBoost, introduced in
-                                1995, became a landmark algorithm, showcasing the power of boosting in enhancing weak
-                                learners. Shortly after, boosting algorithms, proposed by Robert Schapire and Yoram
-                                Singer, emerged to sequentially train models for correct classification of previously
-                                misclassified instances. In the early 2000s, Random Forests, introduced by Leo Breiman,
-                                gained prominence as an ensemble technique using decision trees and decorrelating them
-                                for improved performance. As machine learning advanced, ensemble methods found
-                                applications in diverse fields, showcasing their robustness and adaptability. Ensemble
-                                learning continued to evolve, adapting to the rise of deep learning.</br></br>
-                                <strong>Details of the talk:</strong>
-                                This research talk delves into the rich history of ensemble learning, tracing its evolution as
-                                a pivotal concept shaping the landscape of modern machine learning. Beginning with its
-                                roots, we explore the foundations laid by early pioneers and unravel the journey of
-                                ensemble learning&#39;s integration into the domain of machine learning methodologies. A
-                                particular focus is placed on the transformative influence of ensemble learning through
-                                bootstrapping and boosting techniques, elucidating their role in enhancing model
-                                robustness and performance. These techniques not only contribute to the diversity within
-                                ensembles but have played a crucial role in the development of powerful algorithms.
-                                Furthermore, the talk investigates how ensemble learning serves as a fundamental
-                                building block for contemporary deep neural networks, such as residual networks
-                                (ResNets) and dense neural networks (DenseNets). Another intriguing aspect explored is
-                                the pervasive presence of ensemble learning in various adnaced facets of deep learning
-                                like distributed learning, and federated learning. Through this exploration, the talk aims to
-                                unveil the hidden influence of ensemble learning, providing a comprehensive
-                                understanding of its historical significance and its integral role in molding the landscape of
-                                modern machine learning.
-                        </p>
-                    </td>
-                </tr>
-
-                <tr class="accordion">
-                    <td>08-02-2024</td>
-                    <td>Tejas Pote</td>
-                    <td>Sparsity in Deep Neural Networks and the Lottery Ticket Hypothesis (<a href="https://arxiv.org/abs/1803.03635" target=”_blank”>paper</a>,&nbsp;<a href="https://arxiv.org/abs/1903.01611v1" target=”_blank”>paper</a>,&nbsp;<a href="https://arxiv.org/abs/2010.03533" target=”_blank”>paper</a>)&nbsp;<a href="content/Sparsity in Deep Neural Networks and The Lottery.pptx" download>(Download ppt)</a></td>
-                </tr>
-                <tr class="panel">
-                    <td colspan="4">
-                        <p>
-                            <strong>Abstract:</strong> Deep Neural Networks deliver the promise of overwhelming generalization performance over a wide variety of tasks like image classification, language modeling, etc. However, the growing size of the networks poses concerns of increasing computational and storage overheads. Besides, parameter redundancy in modern deep networks is well established given  their overparameterized nature. To this end, a number of pruning techniques are widely employed for training neural networks which drop redundant model parameters based on various criteria and deliver comparable model performance. In this talk, we discuss the Lottery Ticket Hypothesis, which empirically proves the existence of subnetworks (winning tickets) within dense, randomly-initialized, feed-forward networks and outlines a training procedure to arrive at the winning solution by training from scratch. The method is successful in reducing parameter counts by over 90% and as well converging faster than the dense network. The talk shall revolve around an overview of the method along with the experimental details. We also plan to discuss the theoretical aspects of the technique and develop deeper insights on 'what makes the lottery tickets win'.
-                        </p>
-                    </td>
-                </tr>
-            </table>
+    <!-- Lightbox Modal for Poster View -->
+    <div id="lightbox-modal" class="lightbox-modal">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+            <img class="lightbox-img" src="" alt="Enlarged view">
+            <div class="lightbox-caption"></div>
         </div>
     </div>
 
-
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var panels = document.getElementsByClassName("panel");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                /* Toggle between adding and removing the "active" class,
-                to highlight the button that controls the panel */
-
-                /* Toggle between hiding and showing the active panel */
-                var panel = panels[[].indexOf.call(acc, this)];
-                console.log(panel.getElementsByTagName("td")[0].style.height);
-                if (!panel.getElementsByTagName("td")[0].style.height || panel.getElementsByTagName("td")[0].style.height.localeCompare("0px")==0) {
-                    panel.getElementsByTagName("td")[0].style.height = "auto";
-                    panel.getElementsByTagName("td")[0].getElementsByTagName("p")[0].style.height = "auto";
-                }
-                else {
-                    panel.getElementsByTagName("td")[0].style.height = "0px";
-                    panel.getElementsByTagName("td")[0].getElementsByTagName("p")[0].style.height = "0px";
-                }
-            });
-        }
-    </script>
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
+
 </html>

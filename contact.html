@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('idoai-theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact &bull; IdoAI</title>
+    <meta name="description"
+        content="Contact details of event coordinators and organizers for the IdoAI weekly talk series at Department of AI, IIT Kharagpur.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <img src="iitlogo.png" alt="IIT Kharagpur Logo" class="logo-dark">
+                <img src="IITKgp_logo.svg" alt="IIT Kharagpur Logo" class="logo-light">
+                <div>
+                    <span class="brand-title text-gradient">IdoAI</span>
+                    <span class="brand-subtitle">Dept. of Artificial Intelligence &bull; IIT Kharagpur</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <!-- <li><a href="gallery.html" class="nav-link">Gallery</a></li> -->
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 140px; padding-bottom: 80px;">
+
+        <!-- Page Title Header -->
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+            <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Event <span class="text-gradient">Coordinators &
+                    Contact</span></h1>
+            <p style="font-size: 1.15rem; max-width: 650px; margin: 0 auto; color: var(--text-muted);">
+                Get in touch with the coordination team for speaker proposals, seminar inquiries, or scheduling details
+                for the IdoAI talk series.
+            </p>
+        </div>
+
+        <!-- ==========================================================================
+             COORDINATORS SECTION
+             ========================================================================== -->
+        <section style="margin-bottom: 5rem;">
+            <div style="margin-bottom: 2rem;">
+                <h2 class="section-title"><i class="fa-solid fa-users-gear" style="color: var(--primary-light);"></i>
+                    Seminar Coordination Team</h2>
+                <p class="section-subtitle">Event organizers and departmental coordinators for IdoAI sessions</p>
+            </div>
+
+            <div class="members-grid">
+
+                <!-- Member Card 1: Faculty / Lead Coordinator -->
+                <div class="member-card">
+                    <div class="member-avatar-wrapper">
+                        <div class="member-avatar">
+                            <!-- To add real photo, replace icon with img tag: -->
+                            <img src="contact_dp/ksreddy.jpeg" alt="Faculty Lead">
+                        </div>
+                    </div>
+                    <h3 class="member-name">Dr. Kota Srinivas Reddy</h3>
+                    <span class="member-responsibility">Faculty-in-charge</span>
+                    <p class="member-affiliation">Department of AI<br>IIT Kharagpur</p>
+                    <div class="member-actions">
+                        <a href="mailto:ksreddy@ai.iitkgp.ac.in" class="btn btn-primary btn-sm"><i
+                                class="fa-solid fa-envelope"></i> Mail</a>
+                        <a href="https://ai.iitkgp.ac.in" target="_blank" class="btn btn-secondary btn-sm"><i
+                                class="fa-solid fa-globe"></i> Profile</a>
+                    </div>
+                </div>
+
+                <!-- Member Card 2: Student Coordinator 1 -->
+                <div class="member-card">
+                    <div class="member-avatar-wrapper">
+                        <div class="member-avatar">
+                            <!-- To add real photo: -->
+                            <img src="contact_dp/ranjan.png" alt="Student Coordinator 1">
+                        </div>
+                    </div>
+                    <h3 class="member-name">Ranjan Sarkar</h3>
+                    <span class="member-responsibility">Student Coordinator</span>
+                    <p class="member-affiliation">Research Scholar<br>Department of AI<br>IIT Kharagpur</p>
+                    <div class="member-actions">
+                        <a href="mailto:ranjan.sarkar.24@kgpian.iitkgp.ac.in" class="btn btn-primary btn-sm"><i
+                                class="fa-solid fa-envelope"></i> Mail</a>
+                        <a href="https://ranjan-sarkar.github.io/" target="_blank" class="btn btn-secondary btn-sm"><i
+                                class="fa-solid fa-globe"></i> Profile</a>
+                    </div>
+                </div>
+
+                <!-- Member Card 3: Student Coordinator 2 -->
+                <div class="member-card">
+                    <div class="member-avatar-wrapper">
+                        <div class="member-avatar">
+                            <i class="fa-solid fa-user-graduate"></i>
+                            <!-- To add real photo: <img src="images/student2.jpg" alt="Student Coordinator 2"> -->
+                        </div>
+                    </div>
+                    <h3 class="member-name">Subhojyoti Khastagir</h3>
+                    <span class="member-responsibility">Student Coordinator</span>
+                    <p class="member-affiliation">Research Scholar<br>Department of AI<br>IIT Kharagpur</p>
+                    <div class="member-actions">
+                        <a href="mailto:skhastagir.24@kgpian.iitkgp.ac.in" class="btn btn-primary btn-sm"><i
+                                class="fa-solid fa-envelope"></i> Mail</a>
+                        <a href="https://in.linkedin.com/in/subhojyoti-khastagir-2a4716152" target="_blank"
+                            class="btn btn-secondary btn-sm"><i class="fa-brands fa-linkedin"
+                                style="color: #0a66c2;"></i> Profile</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SPEAKER INQUIRY & GOOGLE FORM SECTION
+             ========================================================================== -->
+        <section>
+            <!-- Google Form for Talk Ideas & Proposals -->
+            <div
+                style="background: var(--bg-surface); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 2.5rem; backdrop-filter: blur(12px);">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+                    <div>
+                        <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 6px;">
+                            <i class="fa-solid fa-lightbulb" style="color: #f59e0b;"></i> Propose a Talk / Paper Idea
+                        </h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">
+                            Have an exciting paper or research topic? Submit your talk proposal via our official Google
+                            Form.
+                        </p>
+                    </div>
+                    <!-- Direct Google Form Action Button -->
+                    <a href="https://forms.gle/89a4wQrrdy2YnLNX6" target="_blank" class="btn btn-primary btn-sm"
+                        style="white-space: nowrap;">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Google Form
+                    </a>
+                </div>
+
+                <!-- Google Form Embedded Container -->
+                <div
+                    style="width: 100%; border-radius: var(--radius-md); overflow: hidden; background: #ffffff; border: 1px solid var(--glass-border); margin-top: 1rem;">
+                    <iframe src="https://forms.gle/89a4wQrrdy2YnLNX6" width="100%" height="620" frameborder="0"
+                        marginheight="0" style="border: none; display: block; width: 100%;">
+                        Loading Google Form...
+                    </iframe>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <img src="iitlogo.png" alt="IIT Kharagpur Logo" class="logo-dark">
+                        <img src="IITKgp_logo.svg" alt="IIT Kharagpur Logo" class="logo-light">
+                        <span class="brand-title text-gradient">IdoAI</span>
+                    </a>
+                    <p>
+                        <b>Interdisciplinary Opportunities with AI</b> <br>
+                        Weekly Seminar & Paper Discussion Series at
+                        Department of Artificial Intelligence,
+                        Indian Institute of Technology Kharagpur.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Event Details</a></li>
+                        <!-- <li><a href="gallery.html">Photo Gallery</a></li> -->
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.linkedin.com/company/ai-iitkgp/" target="_blank"><i
+                                    class="fa-brands fa-linkedin" style="color:#0a66c2;"></i> LinkedIn Page</a></li>
+                        <li><a href="https://ai.iitkgp.ac.in" target="_blank"><i class="fa-solid fa-globe"></i>
+                                Department Webpage</a></li>
+                        <li><a href="https://maps.app.goo.gl/JtVYZDqB4DAPf4AH8" target="_blank"><i
+                                    class="fa-solid fa-location-dot"></i> CRR Building, IIT KGP</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 IdoAI - Department of Artificial Intelligence, IIT Kharagpur. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
