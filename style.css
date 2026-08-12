@@ -1231,13 +1231,298 @@ span.resource-btn:hover {
         display: block;
     }
 
-    .event-summary {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-    }
-
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Main Layout & Header Padding */
+    main.container {
+        padding-top: 105px !important;
+        padding-bottom: 50px !important;
+    }
+
+    /* Page Titles & Headers */
+    main > div[style*="text-align: center"] h1,
+    h1[style*="font-size: 3rem"] {
+        font-size: 1.85rem !important;
+        line-height: 1.25 !important;
+    }
+
+    main > div[style*="text-align: center"] p,
+    p[style*="font-size: 1.15rem"] {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .section-title {
+        font-size: 1.35rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+    }
+
+    /* Featured / Upcoming Event Spotlight Card */
+    .featured-card {
+        padding: 1.25rem 1rem;
+        border-radius: var(--radius-md);
+        margin-bottom: 2.5rem;
+    }
+
+    .featured-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .featured-title {
+        font-size: 1.25rem;
+        line-height: 1.35;
+        margin-bottom: 0.75rem;
+    }
+
+    .presenter-info {
+        gap: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .presenter-name {
+        font-size: 0.95rem;
+    }
+
+    .presenter-role {
+        font-size: 0.8rem;
+    }
+
+    .abstract-box {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        text-align: left;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        border-radius: var(--radius-sm);
+    }
+
+    .abstract-title {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+
+    .featured-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .countdown-container {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .countdown-timer {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0.35rem;
+    }
+
+    .timer-unit {
+        min-width: 50px;
+    }
+
+    .timer-value {
+        font-size: 1.15rem;
+    }
+
+    .timer-label {
+        font-size: 0.65rem;
+    }
+
+    .talk-poster-container {
+        margin: 1rem 0;
+        padding: 0.5rem;
+    }
+
+    .talk-poster-img {
+        max-height: 280px;
+    }
+
+    .poster-overlay {
+        font-size: 0.8rem;
+    }
+
+    .poster-overlay span {
+        padding: 6px 14px;
+    }
+
+    /* Controls Bar & Search/Filter Pills */
+    .controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .search-input-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .search-input {
+        font-size: 0.85rem;
+        padding: 10px 14px 10px 40px;
+    }
+
+    .search-input-wrapper i {
+        left: 14px;
+    }
+
+    .category-pills {
+        width: 100%;
+        gap: 6px;
+        justify-content: flex-start;
+    }
+
+    .pill-btn {
+        font-size: 0.785rem;
+        padding: 6px 14px;
+    }
+
+    /* Event Summary & Accordion Cards */
+    .events-grid {
+        gap: 0.85rem;
+    }
+
+    .event-card {
+        border-radius: var(--radius-sm);
+    }
+
+    .event-summary {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+        padding: 1rem 1rem 1rem 1.15rem;
+        padding-right: 3.25rem;
+        position: relative;
+    }
+
+    .event-date-badge {
+        font-size: 0.8rem;
+    }
+
+    .event-speaker {
+        font-size: 0.9rem;
+    }
+
+    .event-topic {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .expand-icon {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 28px;
+        height: 28px;
+        font-size: 0.85rem;
+    }
+
+    /* Drawer Content & Abstracts */
+    .drawer-content {
+        padding: 1rem;
+    }
+
+    .drawer-abstract {
+        font-size: 0.875rem;
+        line-height: 1.65;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    .event-card.expanded .event-details-drawer {
+        max-height: 3000px;
+    }
+
+    /* Resource Links & Buttons */
+    .resource-links {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .resource-btn {
+        width: 100%;
+        justify-content: flex-start;
+        text-align: left;
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        line-height: 1.4;
+        word-break: break-word;
+        white-space: normal;
+        border-radius: var(--radius-sm);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+        padding: 1rem;
+    }
+
+    .lightbox-img {
+        max-height: 75vh;
+    }
+
+    .lightbox-close {
+        top: -36px;
+        right: 0;
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .brand-title {
+        font-size: 1.25rem;
+    }
+
+    .brand-subtitle {
+        font-size: 0.65rem;
+    }
+
+    .nav-container {
+        height: 66px;
+    }
+
+    .brand-logo img {
+        height: 34px;
+    }
+
+    main.container {
+        padding-top: 90px !important;
+    }
+
+    .pill-btn {
+        flex: 1 1 calc(50% - 6px);
+        text-align: center;
+    }
+
+    .category-pills button[data-filter="all"] {
+        flex: 1 1 100%;
     }
 }

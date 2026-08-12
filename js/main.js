@@ -107,10 +107,11 @@ function initSearchAndFilter() {
 
     function filterItems() {
         filterableItems.forEach(item => {
-            const category = item.dataset.category || 'all';
+            const rawCategory = item.dataset.category || 'all';
+            const categories = rawCategory.toLowerCase().split(/[\s,]+/).filter(Boolean);
             const textContent = item.textContent.toLowerCase();
 
-            const matchesCategory = (currentCategory === 'all' || category === currentCategory);
+            const matchesCategory = (currentCategory === 'all' || categories.includes(currentCategory.toLowerCase()));
             const matchesSearch = textContent.includes(currentSearchQuery.toLowerCase());
 
             if (matchesCategory && matchesSearch) {
