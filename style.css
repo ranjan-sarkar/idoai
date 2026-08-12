@@ -766,7 +766,7 @@ a:hover {
 
 .event-summary {
     display: grid;
-    grid-template-columns: 140px 180px 1fr auto;
+    grid-template-columns: 130px 200px 1fr auto;
     align-items: center;
     gap: 1.5rem;
     padding: 1.25rem 1.5rem;
@@ -787,6 +787,59 @@ a:hover {
     font-weight: 600;
     color: var(--text-main);
     font-size: 0.95rem;
+}
+
+/* Speaker Profile Links & Badges */
+.event-speaker a.speaker-profile-link,
+.speaker-profile-link {
+    color: var(--text-main);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.event-speaker a.speaker-profile-link:hover,
+.speaker-profile-link:hover {
+    color: var(--primary-light);
+}
+
+.event-speaker a.speaker-profile-link i,
+.speaker-profile-link i {
+    color: var(--primary-light);
+    font-size: 0.9em;
+    transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.event-speaker a.speaker-profile-link:hover i,
+.speaker-profile-link:hover i {
+    transform: scale(1.2);
+    color: var(--secondary);
+}
+
+.speaker-profile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    margin-left: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-light);
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    vertical-align: middle;
+    transition: all var(--transition-fast);
+}
+
+.speaker-profile-badge:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 2px 10px rgba(139, 92, 246, 0.3);
 }
 
 .event-topic {
@@ -1287,6 +1340,7 @@ span.resource-btn:hover {
 }
 
 @media (max-width: 768px) {
+
     /* Main Layout & Header Padding */
     main.container {
         padding-top: 105px !important;
@@ -1294,13 +1348,13 @@ span.resource-btn:hover {
     }
 
     /* Page Titles & Headers */
-    main > div[style*="text-align: center"] h1,
+    main>div[style*="text-align: center"] h1,
     h1[style*="font-size: 3rem"] {
         font-size: 1.85rem !important;
         line-height: 1.25 !important;
     }
 
-    main > div[style*="text-align: center"] p,
+    main>div[style*="text-align: center"] p,
     p[style*="font-size: 1.15rem"] {
         font-size: 0.95rem !important;
         line-height: 1.5 !important;

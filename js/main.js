@@ -78,7 +78,11 @@ function initAccordions() {
     eventCards.forEach(card => {
         const summary = card.querySelector('.event-summary');
         if (summary) {
-            summary.addEventListener('click', () => {
+            summary.addEventListener('click', (e) => {
+                // If click originated from a link inside summary (like speaker profile), don't toggle accordion
+                if (e.target.closest('a')) {
+                    return;
+                }
                 const isExpanded = card.classList.contains('expanded');
                 
                 // Optionally close other expanded cards
